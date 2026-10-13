@@ -1,9 +1,9 @@
-# Hermes Desktop 2.0.4 构建说明
+# Hermes Desktop 2.0.4 構建說明
 
-应用使用 JDK 21、Gradle 8.13、Kotlin 2.3.20 与 Compose Desktop 1.10.1，从本版源码编译。
+應用使用 JDK 21、Gradle 8.13、Kotlin 2.3.20 與 Compose Desktop 1.10.1，從本版原始碼編譯。
 
-测试命令使用 `-PheadlessTests=true`，执行连接恢复、真实 HTTP / WebSocket 跨端同步、消息显示、未读、任务和工作空间恢复回归。
+測試命令使用 `-PheadlessTests=true`，執行連線恢復、真實 HTTP / WebSocket 跨端同步、訊息顯示、未讀、任務和工作空間恢復迴歸。
 
-依赖声明未改变。以 SHA-256 验证 2.0.3 平台包及清单后复用平台依赖与原生运行时，替换新编译的应用 JAR。Windows 原生启动器和 NSIS 安装器重新构建；Mac 重新进行 ad-hoc 签名并验证代码页、资源和归档权限。
+依賴宣告未改變。以 SHA-256 驗證 2.0.3 平臺包及清單後複用平臺依賴與原生執行時，替換新編譯的應用 JAR。Windows 原生啟動器和 NSIS 安裝器重新構建；Mac 重新進行 ad-hoc 簽名並驗證內碼表、資源和歸檔許可權。
 
-Mac 提供只有一个 Hermes.app 根目录的 ZIP；未用 Linux 生成伪装的 DMG。Mac 包没有 Apple Developer ID 公证。Windows / macOS 真机安装启动未执行。
+Mac 提供只有一個 Hermes.app 根目錄的 ZIP；未用 Linux 生成偽裝的 DMG。Mac 包沒有 Apple Developer ID 公證。Windows / macOS 真機安裝啟動未執行。

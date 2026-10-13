@@ -1,5 +1,5 @@
 # Hermes Desktop 1.9.0
 
-新增软件内更新：Hermes 会检查 GitHub 正式 Release，支持后台下载、SHA-256 校验和重启安装。
+新增軟體內更新：Hermes 會檢查 GitHub 正式 Release，支援後臺下載、SHA-256 校驗和重啟安裝。
 
-更新只使用公开正式版本，不读取草稿或预发布版本。安装前会保存本机草稿，回复、录音或待发送队列进行时不会强行更新。Windows 使用 MSI 升级，macOS 要求应用位于 Applications 且通过本地签名校验。
+更新只使用公開正式版本，不讀取草稿或預釋出版本。安裝前會儲存本機草稿，回覆、錄音或待傳送佇列進行時不會強行更新。Windows 使用 MSI 升級，macOS 要求應用位於 Applications 且通過本機簽名校驗。

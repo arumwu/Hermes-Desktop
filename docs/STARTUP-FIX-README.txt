@@ -1,16 +1,16 @@
-﻿Hermes Windows 1.8.0 启动修复包
+﻿Hermes Windows 1.8.0 啟動修復包
 
-推荐直接运行同版本 Startup-Repair.exe 自动修复。
-如果使用这个 ZIP 手动修复：
+推薦直接運行同版本 Startup-Repair.exe 自動修復。
+如果使用這個 ZIP 手動修復：
 
-1. 如果 Hermes 仍在运行，请在右下角托盘右键选择“退出 Hermes”。
-2. 找到原 Hermes.exe 所在目录。安装版通常在 %LOCALAPPDATA%\Programs\Hermes。
-3. 完整解压本 ZIP，将 runtime 文件夹和所有启动文件复制到该目录，确认替换同名文件。
-4. 保留原 app 文件夹，不需要修改它。
-5. 双击 Hermes.exe 启动。
+1. 如果 Hermes 仍在執行，請在右下角托盤右鍵選擇“退出 Hermes”。
+2. 找到原 Hermes.exe 所在目錄。安裝版通常在 %LOCALAPPDATA%\Programs\Hermes。
+3. 完整解壓本 ZIP，將 runtime 資料夾和所有啟動檔案複製到該目錄，確認替換同名檔案。
+4. 保留原 app 資料夾，不需要修改它。
+5. 雙擊 Hermes.exe 啟動。
 
-修复不修改 %LOCALAPPDATA%\HermesDesktop 内的网关、头像、会话或草稿。
-本包仅修复已有 Hermes 1.8.0，不能单独运行。
+修復不修改 %LOCALAPPDATA%\HermesDesktop 內的閘道、頭像、對話或草稿。
+本包僅修復已有 Hermes 1.8.0，不能單獨執行。
 
-如果仍然打不开，运行 Diagnose-Hermes.bat，将生成的完整 startup-*.log 发给开发者。
-日志路径：%LOCALAPPDATA%\HermesDesktop\logs。
+如果仍然打不開，執行 Diagnose-Hermes.bat，將生成的完整 startup-*.log 發給開發者。
+日誌路徑：%LOCALAPPDATA%\HermesDesktop\logs。

@@ -1,6 +1,6 @@
 # 當前版本：Windows Beta 4
 
-本輪構建、測試及 Windows 真機待測範圍見 [WINDOWS-VALIDATION.md](WINDOWS-VALIDATION.zh-TW.md)。以下為保留的 Beta 3a 歷史驗證記錄，不代表當前版本已經完成 Windows 真機驗證。
+本輪構建、測試及 Windows 真機待測範圍見 [Windows 驗證記錄](WINDOWS-VALIDATION.zh-TW.md)。以下為保留的 Beta 3a 歷史驗證記錄，不代表當前版本已經完成 Windows 真機驗證。
 
 # 驗證記錄
 
@@ -42,7 +42,7 @@ JDK 21 + Linux 環境編譯通過，86 項迴歸測試通過，0 失敗、0 錯�
 
 Mac 啟動／打包入口沿用已修復版本；原始碼包檢查 CRC、指令碼執行許可權、必要檔案和主程式 SHA-256 清單。檔案選擇／另存採用 AWT 對應的 macOS 原生視窗，取消及覆蓋確認仍需在 Mac 上覆核。當前 Linux 環境沒有實際生成或執行 macOS DMG，也未連線使用者閘道執行本版 UI 的完整端到端測試。
 
-使用者已確認前一版能在 Mac 編譯、連線閘道，基礎功能可用；本版真機複核步驟見 [MAC-ACCEPTANCE.md](MAC-ACCEPTANCE.zh-TW.md)。以下保留早期版本的驗證歷史，其中“待使用者驗證”描述的是當時狀態。
+使用者已確認前一版能在 Mac 編譯、連線閘道，基礎功能可用；本版真機複核步驟見 [Mac 驗收步驟](MAC-ACCEPTANCE.zh-TW.md)。以下保留早期版本的驗證歷史，其中“待使用者驗證”描述的是當時狀態。
 
 ## Beta 2 登入迴歸
 
@@ -117,4 +117,4 @@ Mac 啟動／打包入口沿用已修復版本；原始碼包檢查 CRC、指令
 - macOS Keychain、通知與 Dock 標記、DMG 生成及安裝後執行。
 - Developer ID 簽名、公證及對外分發。
 
-基礎預覽框架此前已由使用者在 Mac 上執行成功。新增能力的用戶端實現與模擬迴歸已完成，真機驗收按 [MAC-ACCEPTANCE.md](MAC-ACCEPTANCE.zh-TW.md) 繼續。
+基礎預覽框架此前已由使用者在 Mac 上執行成功。新增能力的用戶端實現與模擬迴歸已完成，真機驗收按 [Mac 驗收步驟](MAC-ACCEPTANCE.zh-TW.md) 繼續。

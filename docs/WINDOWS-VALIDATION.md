@@ -1,91 +1,91 @@
-## 2026-09-15 · UI 修订 3
+## 2026-09-15 · UI 修訂 3
 
-本轮检查记录见 [更新说明](RELEASE-1.8.3-UI3.md)。以下历史检查保留用于追溯，不表示本轮重新执行了所有原生检查。
+本輪檢查記錄見 [更新說明](RELEASE-1.8.3-UI3.zh-TW.md)。以下歷史檢查保留用於追溯，不表示本輪重新執行了所有原生檢查。
 
-# Windows 1.8.3 验证范围
+# Windows 1.8.3 驗證範圍
 
-## 本次回归
+## 本次迴歸
 
-- 237 项自动化测试：235 项通过、0 项失败、2 项跳过。跳过项为 Windows DPAPI 原生加密检查；本机为 Linux。逐套件结果和跳过项见 `validation/windows-1.8.3-tests.json`。
-- 新增回归覆盖英文流式空格与换行、新版服务端 JSON-RPC clarify / approval、旧版结构化问题事件、启动消息前的请求、多问题恢复与锁定答案、原始请求 id 回答、按会话隔离取消、待确认事项进入任务中心、附件原始字节读取及本地状态恢复。
-- Linux Xvfb 的实际 AWT/Compose 窗口中，Robot 鼠标点击确认浮窗和主输入框的附件名打开预览；Esc 关闭预览，附件和草稿保留；只有独立 × 按钮删除附件。
-- 所有 Hermes 主窗口隐藏后，实际键盘 Esc 取消截图，回调仅执行一次；右键取消及拖动完成选区均通过。执行记录：`validation/windows-1.8.3-native-check.txt`。
-- 实际渲染截图位于 `previews/windows-1.8.3/`：浮窗、图片预览、多问题选择面板和悬浮菜单。检查图片完整显示、缩放按钮、独立附件删除按钮、多选/单选及填写区域。阴影使用显式模糊参数与 24 dp 透明边距。
+- 237 項自動化測試：235 項通過、0 項失敗、2 項跳過。跳過項為 Windows DPAPI 原生加密檢查；本機為 Linux。逐套件結果和跳過項見 `validation/windows-1.8.3-tests.json`。
+- 新增迴歸覆蓋英文流式空格與換行、新版伺服器端 JSON-RPC clarify / approval、舊版結構化問題事件、啟動訊息前的請求、多問題恢復與鎖定答案、原始請求 id 回答、按對話隔離取消、待確認事項進入任務中心、附件原始位元組讀取及本機狀態恢復。
+- Linux Xvfb 的實際 AWT/Compose 視窗中，Robot 滑鼠點選確認浮窗和主輸入框的附件名開啟預覽；Esc 關閉預覽，附件和草稿保留；只有獨立 × 按鈕刪除附件。
+- 所有 Hermes 主視窗隱藏後，實際鍵盤 Esc 取消截圖，回撥僅執行一次；右鍵取消及拖動完成選區均通過。執行記錄：`validation/windows-1.8.3-native-check.txt`。
+- 實際渲染截圖位於 `previews/windows-1.8.3/`：浮窗、圖片預覽、多問題選擇面板和懸浮選單。檢查圖片完整顯示、縮放按鈕、獨立附件刪除按鈕、多選/單選及填寫區域。陰影使用顯式模糊引數與 24 dp 透明邊距。
 
 ## 交付包
 
-- 从校验 SHA-256 的官方 Windows x64 JDK 21 构建完整运行环境，保留 `jdk.unsupported.desktop`，无需另装 Java。
-- 应用、启动器与安装器版本均为 1.8.3；Windows JavaFX / Skiko 原生依赖单独组装。
-- `packaging/verify-release.py` 解开最终 NSIS 安装器，并逐文件比较其真实载荷与便携包；检查实际运行环境模块、PE 版本、新预览与确认协议类及内置字体。最终报告见源码包的 `validation/windows-1.8.3-package.json`。
-- 源码包附 `SOURCE-SHA256.txt`，打包时逐文件重新读取 ZIP 校验。
+- 從校驗 SHA-256 的官方 Windows x64 JDK 21 構建完整執行環境，保留 `jdk.unsupported.desktop`，無需另裝 Java。
+- 應用、啟動器與安裝器版本均為 1.8.3；Windows JavaFX / Skiko 原生依賴單獨組裝。
+- `packaging/verify-release.py` 解開最終 NSIS 安裝器，並逐檔案比較其真實載荷與便攜包；檢查實際執行環境模組、PE 版本、新預覽與確認協議類及內建字型。最終報告見原始碼包的 `validation/windows-1.8.3-package.json`。
+- 原始碼包附 `SOURCE-SHA256.txt`，打包時逐檔案重新讀取 ZIP 校驗。
 
-## 实机限制
+## 實機限制
 
-本轮没有 Windows 真机，未执行 Windows 安装升级、系统托盘外壳、多显示器混合 DPI 和 DPAPI 原生测试。上述实窗检查在 Linux Xvfb 完成，不等同于 Windows 系统桌面验收。
+本輪沒有 Windows 真機，未執行 Windows 安裝升級、系統托盤外殼、多顯示器混合 DPI 和 DPAPI 原生測試。上述實窗檢查在 Linux Xvfb 完成，不等同於 Windows 系統桌面驗收。
 
-网关测试使用本地 WebSocket 协议夹具，未连接用户实际服务。恢复选项依赖服务器发出请求或提供 `open_requests` / 旧版 pending 字段。升级前请在托盘中退出旧版 Hermes；账号配置和草稿沿用原用户目录。旧版本已保存为粘连状态的思考文本无法可靠恢复空格。
+閘道測試使用本機 WebSocket 協議夾具，未連線使用者實際服務。恢復選項依賴伺服器發出請求或提供 `open_requests` / 舊版 pending 欄位。升級前請在托盤中退出舊版 Hermes；賬號配置和草稿沿用原使用者目錄。舊版本已儲存為粘連狀態的思考文本無法可靠恢復空格。
 
-## 历史验证（不计入 1.8.3 本次结果）
+## 歷史驗證（不計入 1.8.3 本次結果）
 
-# Windows 1.8.2 验证范围
+# Windows 1.8.2 驗證範圍
 
-## 本次验证
+## 本次驗證
 
-- 23 项定向回归全部通过，0 项失败、0 项跳过。包含菜单定位、关闭信号去重、关闭后取消回调、重新打开隔离、悬浮球和按住/松开语音路径。结果：`validation/windows-1.8.2-tests.json`。
-- 使用实际 Compose 导航组件在 100% / 200% 缩放下检查工作空间图标、最近会话和展开按钮的中心坐标，均位于 64 dp 导航栏的中轴线上。640 dp 高度下底部按钮可见；展开模式的四条会话由受约束的滚动区域承载。
-- Linux Xvfb 实窗在 100% / 200% 下验证共享菜单：鼠标点击、状态更新、键盘方向键/Enter/Esc、同一 JVM 外部窗口点击、重复打开、主题/大字号、实际悬浮球右键、提问与隐藏悬浮球。通过，记录：`validation/windows-1.8.2-native-check.txt`。
-- 当前界面截图：`previews/windows-1.8.2/`，含完整聊天布局、展开/收窄导航与两种缩放下的桌面菜单。
-- 交付包校验检查 1.8.2 应用与启动器版本、Windows 原生依赖、实际运行环境模块、新全局鼠标监听类、最近会话组件、中文字体和全部安装载荷。最终报告：源码的 `validation/windows-1.8.2-package.json`。
+- 23 項定向迴歸全部通過，0 項失敗、0 項跳過。包含選單定位、關閉訊號去重、關閉後取消回撥、重新開啟隔離、懸浮球和按住/鬆開語音路徑。結果：`validation/windows-1.8.2-tests.json`。
+- 使用實際 Compose 導航元件在 100% / 200% 縮放下檢查工作空間圖示、最近對話和展開按鈕的中心座標，均位於 64 dp 導航欄的中軸線上。640 dp 高度下底部按鈕可見；展開模式的四條對話由受約束的滾動區域承載。
+- Linux Xvfb 實窗在 100% / 200% 下驗證共享選單：滑鼠點選、狀態更新、鍵盤方向鍵/Enter/Esc、同一 JVM 外部視窗點選、重複開啟、主題/大字級、實際懸浮球右鍵、提問與隱藏懸浮球。通過，記錄：`validation/windows-1.8.2-native-check.txt`。
+- 當前介面截圖：`previews/windows-1.8.2/`，含完整聊天佈局、展開/收窄導航與兩種縮放下的桌面選單。
+- 交付包校驗檢查 1.8.2 應用與啟動器版本、Windows 原生依賴、實際執行環境模組、新全域性滑鼠監聽類、最近對話元件、中文字型和全部安裝載荷。最終報告：原始碼的 `validation/windows-1.8.2-package.json`。
 
-## Windows 原生分支与限制
+## Windows 原生分支與限制
 
-本轮构建和已执行的实窗检查运行于 Linux。新增的 `WH_MOUSE_LL` 全局鼠标分支未在 Windows 真机执行；Linux 窗口点击通过不等于跨程序点击已在 Windows 验证。安装升级、系统托盘壳、多显示器混合 DPI 和 Windows 鼠标钩子的实际效果仍未作实机验收。
+本輪構建和已執行的實窗檢查運行於 Linux。新增的 `WH_MOUSE_LL` 全域性滑鼠分支未在 Windows 真機執行；Linux 視窗點選通過不等於跨程式點選已在 Windows 驗證。安裝升級、系統托盤殼、多顯示器混合 DPI 和 Windows 滑鼠鉤子的實際效果仍未作實機驗收。
 
-源码附 `WindowsGlobalMenuCheck`：在 Windows 上启动独立 JVM 点击目标，关闭菜单窗口的焦点能力，验证跨程序点击仍能关闭菜单、原点击传给目标、重复开关后监听线程退出。该检查在 Linux 明确返回 SKIP；未混入上述 23 项通过数。
+原始碼附 `WindowsGlobalMenuCheck`：在 Windows 上啟動獨立 JVM 點選目標，關閉選單視窗的焦點能力，驗證跨程式點選仍能關閉選單、原點選傳給目標、重複開關後監聽執行緒退出。該檢查在 Linux 明確返回 SKIP；未混入上述 23 項通過數。
 
-实现依据：微软 [LowLevelMouseProc](https://learn.microsoft.com/en-us/windows/win32/winmsg/lowlevelmouseproc) 和 [WindowFromPhysicalPoint](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-windowfromphysicalpoint)。全局监听只在桌面菜单打开期间存在，在专用消息线程处理，点击通过钩子链继续传递；原生命中测试使用物理坐标，避免与 AWT 逻辑坐标混用。
+實現依據：微軟 [LowLevelMouseProc](https://learn.microsoft.com/en-us/windows/win32/winmsg/lowlevelmouseproc) 和 [WindowFromPhysicalPoint](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-windowfromphysicalpoint)。全域性監聽只在桌面選單開啟期間存在，在專用訊息執行緒處理，點選通過鉤子鏈繼續傳遞；原生命中測試使用物理座標，避免與 AWT 邏輯座標混用。
 
-## 历史验证（不计入 1.8.2 本次结果）
+## 歷史驗證（不計入 1.8.2 本次結果）
 
-# Windows 1.8.1 验证范围
+# Windows 1.8.1 驗證範圍
 
-## 界面修正版（本轮）
+## 介面修正版（本輪）
 
-- 菜单定位、悬浮球手势和按住说话相关的 19 项定向回归全部通过，0 项跳过。结果见 `validation/windows-1.8.1-ui-tests.json`。
-- 在 Linux Xvfb 的真实 AWT/Compose 窗口中，以 100% 和 200% 显示缩放验证托盘菜单组件及实际悬浮球右键入口：点击、开关状态、键盘选择、Enter、Esc、点击外部关闭、单一活动菜单、提问与关闭悬浮球均通过。菜单不依赖主窗口可见。
-- 检查深色主题与 130% 文字大小，中文使用应用内置字体；重新打开菜单复用同一窗口，跨显示器时按该显示器配置重建。
-- 左上角布局及桌面菜单的实际截图保存在 `previews/windows-1.8.1-ui/`。原生窗口检查结果见 `validation/windows-1.8.1-ui-native-check.txt`。
-- Windows 安装程序与最终便携载荷逐文件校验；同时检查新菜单类、左上角布局及内置字体确实存在于交付 JAR 中。打包结果见源码中的 `validation/windows-1.8.1-ui-package.json`。
+- 選單定位、懸浮球手勢和按住說話相關的 19 項定向迴歸全部通過，0 項跳過。結果見 `validation/windows-1.8.1-ui-tests.json`。
+- 在 Linux Xvfb 的真實 AWT/Compose 視窗中，以 100% 和 200% 顯示縮放驗證托盤選單元件及實際懸浮球右鍵入口：點選、開關狀態、鍵盤選擇、Enter、Esc、點選外部關閉、單一活動選單、提問與關閉懸浮球均通過。選單不依賴主視窗可見。
+- 檢查深色主題與 130% 文字大小，中文使用應用內建字型；重新開啟選單複用同一視窗，跨顯示器時按該顯示器配置重建。
+- 左上角佈局及桌面選單的實際截圖儲存在 `previews/windows-1.8.1-ui/`。原生視窗檢查結果見 `validation/windows-1.8.1-ui-native-check.txt`。
+- Windows 安裝程式與最終便攜載荷逐檔案校驗；同時檢查新選單類、左上角佈局及內建字型確實存在於交付 JAR 中。打包結果見原始碼中的 `validation/windows-1.8.1-ui-package.json`。
 
-本轮构建与上述实窗验证运行于 Linux。没有执行 Windows 真机安装；Windows 系统托盘本身、多显示器混合 DPI 及实际任务栏行为仍需在 Windows 上验收。原生检查使用与托盘相同的菜单窗口、真实悬浮球入口和本地演示控制器，没有连接用户网关。
+本輪構建與上述實窗驗證運行於 Linux。沒有執行 Windows 真機安裝；Windows 系統托盤本身、多顯示器混合 DPI 及實際工作列行為仍需在 Windows 上驗收。原生檢查使用與托盤相同的選單視窗、真實懸浮球入口和本機演示控制器，沒有連線使用者閘道。
 
-## 1.8.1 首发：语音与手势
+## 1.8.1 首發：語音與手勢
 
-本轮覆盖完整的按住/松开语音路径：真实 DesktopController、加密语音记录、HTTP 转写与 WebSocket 消息提交。物理麦克风由确定的 WAV 数据源替代；没有使用或修改用户的真实网关。
+本輪覆蓋完整的按住/鬆開語音路徑：真實 DesktopController、加密語音記錄、HTTP 轉寫與 WebSocket 訊息提交。物理麥克風由確定的 WAV 資料來源替代；沒有使用或修改使用者的真實閘道。
 
-- 按住时停顿不会提前结束；松开立即停止录音，并且只提交一次。
-- 转写完成前不会发送；录音上限先结束时，也等待鼠标松开再发送。
-- 主窗口停留在其他页面和会话时，仍发送到悬浮球选中的会话。
-- 会话准备期间松开不会延迟开启麦克风；识别期间重复按住不重复录音或提交。
-- 取消、切换会话后保留原会话的可用录音，不自动发给新会话。
-- 空识别不发送；失败录音可重新识别到草稿；模型切换期间保留识别文字。
-- 忙碌会话接收下一条语音队列；旧任务回调不会覆盖新录音状态。
-- 无论是否开启自动朗读，按住模式都不会自动启动下一轮麦克风。
+- 按住時停頓不會提前結束；鬆開立即停止錄音，並且只提交一次。
+- 轉寫完成前不會傳送；錄音上限先結束時，也等待滑鼠鬆開再傳送。
+- 主視窗停留在其他頁面和對話時，仍傳送到懸浮球選中的對話。
+- 對話準備期間鬆開不會延遲開啟麥克風；識別期間重複按住不重複錄音或提交。
+- 取消、切換對話後保留原對話的可用錄音，不自動發給新對話。
+- 空識別不傳送；失敗錄音可重新識別到草稿；模型切換期間保留識別文字。
+- 忙碌對話接收下一條語音佇列；舊任務回撥不會覆蓋新錄音狀態。
+- 無論是否開啟自動朗讀，按住模式都不會自動啟動下一輪麥克風。
 
-首发版本完整回归共 221 项：217 项通过，0 项失败，4 项因平台条件跳过。结果见 `validation/windows-1.8.1-tests.json`。
+首發版本完整迴歸共 221 項：217 項通過，0 項失敗，4 項因平臺條件跳過。結果見 `validation/windows-1.8.1-tests.json`。
 
-使用 Linux Xvfb、真实 AWT/Compose 窗口和 Robot 鼠标事件，验证长按后打开小窗、移出悬浮球后松开、拖动和单击。弹出小窗在按住期间不抢焦点。结果见 `validation/windows-1.8.1-native-hold-check.txt`。
+使用 Linux Xvfb、真實 AWT/Compose 視窗和 Robot 滑鼠事件，驗證長按後開啟小窗、移出懸浮球后鬆開、拖動和單擊。彈出小窗在按住期間不搶焦點。結果見 `validation/windows-1.8.1-native-hold-check.txt`。
 
-## 启动与打包
+## 啟動與打包
 
-1.8.1 使用与已修复的 1.8.0 相同的 Windows x64 运行环境，包括实际镜像中的 `jdk.unsupported.desktop`，没有复用原有不完整 JRE。打包程序检查实际模块镜像、Windows PE、JavaFX 平台、主程序版本、每个依赖和运行环境文件的 SHA-256。
+1.8.1 使用與已修復的 1.8.0 相同的 Windows x64 執行環境，包括實際映象中的 `jdk.unsupported.desktop`，沒有複用原有不完整 JRE。打包程式檢查實際模組映象、Windows PE、JavaFX 平臺、主程式版本、每個依賴和執行環境檔案的 SHA-256。
 
-NSIS 启动器与安装器的文件版本为 1.8.1.0，应用显示 1.8.1。启动日志在 JVM 运行前写入标题，合并 stdout 与 stderr。`packaging/verify-release.py` 对安装 EXE 可解压出的真实载荷逐项比对便携包，并验证主程序版本及启动文件。
+NSIS 啟動器與安裝器的檔案版本為 1.8.1.0，應用顯示 1.8.1。啟動日誌在 JVM 執行前寫入標題，合併 stdout 與 stderr。`packaging/verify-release.py` 對安裝 EXE 可解壓出的真實載荷逐項比對便攜包，並驗證主程式版本及啟動檔案。
 
-使用首发版本的最终应用 JAR，在含中文、空格和 & 的目录下，经 Java 参数文件启动并确认主窗口显示（1440 × 900），退出码为 0。该检查使用 Linux 对应运行环境，记录见 `validation/windows-1.8.1-startup.json`。
+使用首發版本的最終應用 JAR，在含中文、空格和 & 的目錄下，經 Java 引數檔案啟動並確認主視窗顯示（1440 × 900），退出碼為 0。該檢查使用 Linux 對應執行環境，記錄見 `validation/windows-1.8.1-startup.json`。
 
-## 环境限制
+## 環境限制
 
-自动化环境是 Linux + JDK 21。Windows 系统麦克风硬件、DPAPI、任务栏、跨显示器实际鼠标捕获和最终安装升级未在本轮 Windows 真机运行。麦克风识别质量还取决于本机设备及所选识别服务。跳过项在回归结果中明确记录。
+自動化環境是 Linux + JDK 21。Windows 系統麥克風硬體、DPAPI、工作列、跨顯示器實際滑鼠捕獲和最終安裝升級未在本輪 Windows 真機執行。麥克風識別質量還取決於本機裝置及所選識別服務。跳過項在迴歸結果中明確記錄。
 
-文档预览、图标、窗口布局与主题保持既有实现。1.8.0 的真实文档窗口验证与截图保留在 `validation/windows-1.8.0-native-doc-check.txt`、`previews/windows-1.8.0/`；它们是历史验证证据。本轮未将这些历史截图当作新版本实机截图。
+文件預覽、圖示、窗口布局與主題保持既有實現。1.8.0 的真實文件視窗驗證與截圖保留在 `validation/windows-1.8.0-native-doc-check.txt`、`previews/windows-1.8.0/`；它們是歷史驗證證據。本輪未將這些歷史截圖當作新版本實機截圖。

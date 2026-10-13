@@ -1,13 +1,13 @@
 Hermes Windows 1.8.3
 
-完整解压到新目录后双击 Hermes.exe。app、runtime 和启动文件需留在同一目录，无需另装 Java。
-安装版用户请先在系统托盘右键 Hermes → 退出 Hermes，再运行 Hermes-Windows-1.8.3-Setup.exe 升级。
+完整解壓到新目錄後雙擊 Hermes.exe。app、runtime 和啟動檔案需留在同一目錄，無需另裝 Java。
+安裝版使用者請先在系統托盤右鍵 Hermes → 退出 Hermes，再執行 Hermes-Windows-1.8.3-Setup.exe 升級。
 
-本轮更新：收窄导航按钮居中；加入最近会话快捷入口；点桌面或其他程序可收起托盘/悬浮球菜单。包含既有语音和启动修复。
-配置、头像、会话缓存和草稿仍位于 %LOCALAPPDATA%\HermesDesktop。
-启动失败时运行 Diagnose-Hermes.bat 查看完整日志。
+本輪更新：收窄導航按鈕居中；加入最近對話快捷入口；點桌面或其他程式可收起托盤/懸浮球選單。包含既有語音和啟動修復。
+配置、頭像、對話快取和草稿仍位於 %LOCALAPPDATA%\HermesDesktop。
+啟動失敗時執行 Diagnose-Hermes.bat 檢視完整日誌。
 
-关闭主窗口后程序继续在后台运行。右下角系统托盘右键 Hermes → 退出 Hermes，才完整退出。
-设置 → 桌面助手，可开关悬浮球。单击提问、双击框选截图、按住说话松开发送；拖入文件可添加附件。持续语音可从悬浮球右键菜单或语音按钮进入。
+關閉主視窗後程序繼續在後臺執行。右下角系統托盤右鍵 Hermes → 退出 Hermes，才完整退出。
+設定 → 桌面助手，可開關懸浮球。單擊提問、雙擊框選截圖、按住說話鬆開傳送；拖入檔案可新增附件。持續語音可從懸浮球右鍵選單或語音按鈕進入。
 
-改动见 docs/RELEASE-2.0.3.md，使用见 docs/WINDOWS-QUICKSTART.md，验证范围见 docs/ACCEPTANCE-2.0.3.md。
+改動見 docs/RELEASE-2.0.3.md，使用見 docs/WINDOWS-QUICKSTART.md，驗證範圍見 docs/ACCEPTANCE-2.0.3.md。

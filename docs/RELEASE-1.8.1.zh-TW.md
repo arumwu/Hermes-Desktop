@@ -34,4 +34,4 @@
 
 在 Windows 右下角系統托盤中右鍵 Hermes，選擇“退出 Hermes”，再執行 `Hermes-Windows-1.8.1-Setup.exe`，沿用原安裝位置。使用者配置、頭像、對話快取和草稿繼續使用原資料目錄，無需解除安裝。
 
-驗證證據與環境限制見 [WINDOWS-VALIDATION.md](WINDOWS-VALIDATION.zh-TW.md)。
+驗證證據與環境限制見 [Windows 驗證記錄](WINDOWS-VALIDATION.zh-TW.md)。

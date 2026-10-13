@@ -97,8 +97,8 @@ JDK 必須為 21，Apple Silicon 使用 ARM64，Intel 使用 x64。首次安裝�
 ./gradlew renderPreviews
 ```
 
-驗證記錄見 [VALIDATION.md](VALIDATION.zh-TW.md)，真機步驟見 [MAC-ACCEPTANCE.md](MAC-ACCEPTANCE.zh-TW.md)。測試覆蓋真實 HTTP／WebSocket 協議幀的模擬互動、併發對話隔離、恢復狀態、附件加密、語音停頓檢測、引用和產物解析、編輯內容保護。
+驗證記錄見 [驗證記錄](VALIDATION.zh-TW.md)，真機步驟見 [Mac 驗收步驟](MAC-ACCEPTANCE.zh-TW.md)。測試覆蓋真實 HTTP／WebSocket 協議幀的模擬互動、併發對話隔離、恢復狀態、附件加密、語音停頓檢測、引用和產物解析、編輯內容保護。
 
 安裝包在目標 Mac 上生成，按本機晶片打包，未製作 Universal 二合一包。最低構建目標 macOS 13，不處理更老系統相容。原生資源隨安裝包打入，使用 [Compose 原生分發機制](https://kotlinlang.org/docs/multiplatform/compose-native-distribution.html)。本次未配置 Developer ID 簽名與 Apple 公證，正式對外分發仍需完成這兩項和真機驗收。
 
-原 Android 工程未修改。資源來源與許可見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+原 Android 工程未修改。資源來源與許可見 [第三方資源與授權說明](../THIRD_PARTY_NOTICES.zh-TW.md)。

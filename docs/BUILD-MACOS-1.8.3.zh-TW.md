@@ -46,8 +46,8 @@ origin JSON 包含 `version`、`name`、`source`、`sha256`、`bytes`，本次�
 
 ## 驗證依據
 
-- [Compose native distributions](https://kotlinlang.org/docs/multiplatform/compose-native-distribution.html)：jpackage / DMG 平臺限制。
-- [Java 21 Desktop API](https://docs.oracle.com/en/java/javase/21/docs/api/java.desktop/java/awt/Desktop.html)：Dock reopen、應用退出、設定與關於選單。
+- [Compose 原生發行說明](https://kotlinlang.org/docs/multiplatform/compose-native-distribution.html)：jpackage / DMG 平臺限制。
+- [Java 21 桌面 API 說明](https://docs.oracle.com/en/java/javase/21/docs/api/java.desktop/java/awt/Desktop.html)：Dock reopen、應用退出、設定與關於選單。
 - [CGPreflightScreenCaptureAccess](https://developer.apple.com/documentation/coregraphics/cgpreflightscreencaptureaccess()) 和 [CGRequestScreenCaptureAccess](https://developer.apple.com/documentation/coregraphics/cgrequestscreencaptureaccess())：截圖前授權檢查。
 
 離線包只含應用所需程式與工具鏈，不包含使用者閘道位址、Cookie、密碼、鑰匙串資料或開發機快取。

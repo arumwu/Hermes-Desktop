@@ -1,9 +1,9 @@
-# Hermes Desktop 2.0.3 验收记录
+# Hermes Desktop 2.0.3 驗收記錄
 
-- 66 项 JVM / 真实 HTTP / 桌面状态回归测试通过，0 失败；另有 17 项 Python 测试通过。
-- 已复现并修正相对路径截断；验证中文目录、空格、括号、Windows 盘符及 UNC、链接编码保留。
-- 验证旧卡片从原消息恢复路径、历史索引替换、跨工作空间隔离、同名歧义不猜测、403 不尝试其他路径。
-- 测试 XML 见 validation/desktop-2.0.3-junit，汇总见 validation/desktop-2.0.3-validation.json。
-- 安装包组装脚本核验依赖与应用 JAR 哈希，Mac 重新 ad-hoc 签名并检查资源封装与归档权限，Windows 验证运行时清单与 NSIS 安装包载荷。
+- 66 項 JVM / 真實 HTTP / 桌面狀態迴歸測試通過，0 失敗；另有 17 項 Python 測試通過。
+- 已復現並修正相對路徑截斷；驗證中文目錄、空格、括號、Windows 磁碟機代號及 UNC、連結編碼保留。
+- 驗證舊卡片從原訊息恢復路徑、歷史索引替換、跨工作空間隔離、同名歧義不猜測、403 不嘗試其他路徑。
+- 測試 XML 見 validation/desktop-2.0.3-junit，彙總見 validation/desktop-2.0.3-validation.json。
+- 安裝包組裝指令碼核驗依賴與應用 JAR 雜湊，Mac 重新 ad-hoc 簽名並檢查資源封裝與歸檔許可權，Windows 驗證執行時清單與 NSIS 安裝包載荷。
 
-未在 Windows / macOS 真机执行安装启动；真实用户服务器文件是否存在，仍由服务器实际状态决定。
+未在 Windows / macOS 真機執行安裝啟動；真實使用者伺服器檔案是否存在，仍由伺服器實際狀態決定。

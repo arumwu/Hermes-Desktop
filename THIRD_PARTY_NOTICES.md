@@ -1,39 +1,39 @@
-# 来源与第三方资源
+# 來源與第三方資源
 
-- Hermes 的协议、数据模型、部分解析逻辑、品牌图标、头像与人物素材来自用户提供的 `hermes-assistant-2.zip`，其 README 标记 Android 版本为 3.6.5。此适配不为原项目或品牌资产重新指定许可，也不包含原 Android 签名私钥。
-- 导出的原项目图标包含 Phosphor Icons 资源，保留原项目中的 MIT 许可全文：`licenses/Phosphor-MIT.txt`。
-- 捆绑字体 `NotoSansCJKsc-Regular.otf` 来自 [notofonts/noto-cjk](https://github.com/notofonts/noto-cjk/tree/main/Sans)，字体许可全文：`licenses/NotoSansCJK-OFL.txt`。未修改字体。
-- 应用依赖由 Gradle 下载，版本固定于 `build.gradle.kts`：Kotlin、Compose Multiplatform / Material 3、kotlinx.coroutines、OkHttp、org.json、JNA / JNA Platform、CommonMark Java、PDFBox、ICU4J 和 OpenJFX。测试依赖还包含 JUnit、MockWebServer 和 Mockito。各组件保留自己的上游许可与分发声明。
-- `gradlew`、`gradlew.bat` 和 Gradle Wrapper 来自原工程，使用 Gradle 8.13。
+- Hermes 的協定、資料模型、部分解析邏輯、品牌圖示、頭像與人物素材來自使用者提供的 `hermes-assistant-2.zip`，其 README 標記 Android 版本為 3.6.5。此適配不替原專案或品牌資產重新指定授權，也不包含原 Android 簽章私鑰。
+- 匯出的原專案圖示包含 Phosphor Icons 資源，保留原專案中的 MIT 授權全文：`licenses/Phosphor-MIT.txt`。
+- 隨附字型 `NotoSansCJKsc-Regular.otf` 來自 [notofonts/noto-cjk](https://github.com/notofonts/noto-cjk/tree/main/Sans)，字型授權全文：`licenses/NotoSansCJK-OFL.txt`。未修改字型。
+- 應用程式相依套件由 Gradle 下載，版本固定於 `build.gradle.kts`：Kotlin、Compose Multiplatform / Material 3、kotlinx.coroutines、OkHttp、org.json、JNA / JNA Platform、CommonMark Java、PDFBox、ICU4J 和 OpenJFX。測試相依套件還包含 JUnit、MockWebServer 和 Mockito。各元件保留自己的上游授權與散布聲明。
+- `gradlew`、`gradlew.bat` 和 Gradle Wrapper 來自原專案，使用 Gradle 8.13。
 
-构建正式二进制发行版时应随发行包保留依赖中附带的许可和声明；源码包不包含依赖缓存。配套便携包包含运行所需的依赖 JAR，保留其内嵌声明，并在 licenses/dependencies 下另存可识别的许可／声明文本。
+建置正式二進位發行版時，應隨發行套件保留相依套件內附的授權與聲明；原始碼套件不包含相依套件快取。配套可攜版包含執行所需的相依 JAR，保留其內嵌聲明，並在 `licenses/dependencies` 下另存可識別的授權與聲明文字。
 
-- Windows 便携包包含未修改的 Eclipse Temurin JRE 21.0.12.1+1 x64：[官方发布](https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12.1%2B1)。运行环境的完整 `legal` 目录与 `NOTICE` 一并保留。OpenJDK 源码和构建来源由 `runtime/release` 中的上游链接记录；许可证为各模块附带的 GPLv2 with Classpath Exception 等声明。
-- OpenJFX 使用官方 21.0.8 Windows JAR：[OpenJFX 源码与许可](https://github.com/openjdk/jfx)。Skiko 使用 `skiko-awt-runtime-windows-x64` 0.9.37.4。未把 Linux 原生库作为 Windows 原生库重新命名。
-- 打包文件的版本、大小与校验摘要记录在便携包的 `manifest.json`。
-
+- Windows 可攜版包含未修改的 Eclipse Temurin JRE 21.0.12.1+1 x64：[官方發行版](https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12.1%2B1)。執行環境的完整 `legal` 目錄與 `NOTICE` 一併保留。OpenJDK 原始碼與建置來源由 `runtime/release` 中的上游連結記錄；授權為各模組內附的 GPLv2 with Classpath Exception 等聲明。
+- OpenJFX 使用官方 21.0.8 Windows JAR：[OpenJFX 原始碼與授權](https://github.com/openjdk/jfx)。Skiko 使用 `skiko-awt-runtime-windows-x64` 0.9.37.4。未將 Linux 原生函式庫重新命名為 Windows 原生函式庫。
+- 打包檔案的版本、大小與校驗摘要記錄在可攜版的 `manifest.json`。
 
 ## Fluent System Icons
 
-UI icons are unmodified optical-size SVG assets from Microsoft Fluent System Icons, npm package `@fluentui/svg-icons` 1.1.341. MIT license: `licenses/Fluent-System-Icons-LICENSE.txt`. The source mapping and per-asset SHA-256 are in `docs/fluent-icons.json`.
+介面圖示使用 Microsoft Fluent System Icons 中未修改的 SVG 資產，npm 套件為 `@fluentui/svg-icons` 1.1.341。MIT 授權全文：`licenses/Fluent-System-Icons-LICENSE.txt`。來源對照與每個資產的 SHA-256 記錄於 `docs/fluent-icons.json`。
 
-Source: https://github.com/microsoft/fluentui-system-icons
+來源：https://github.com/microsoft/fluentui-system-icons
 
-## NSIS installer
+## NSIS 安裝程式
 
-The Windows setup and small launcher are compiled with NSIS 3.x. NSIS uses the zlib/libpng license for the core; see https://nsis.sourceforge.io/License. No NSIS build tools are bundled in the application.
+Windows 安裝程式與小型啟動器使用 NSIS 3.x 編譯。NSIS 核心使用 zlib/libpng 授權，詳見 https://nsis.sourceforge.io/License 。應用程式不包含 NSIS 建置工具。
 
+## 1.6.0 文件預覽
 
-## Document previews in 1.6.0
-
-Apache POI 5.5.1 (poi-ooxml and poi-scratchpad), Apache PDFBox 3.0.8, jsoup 1.23.2, CommonMark Java 0.24.0 GFM strikethrough. Upstream LICENSE/NOTICE files for staged JAR dependencies are retained under licenses/dependencies; their versions and hashes are recorded in the portable manifest.
+使用 Apache POI 5.5.1（poi-ooxml 與 poi-scratchpad）、Apache PDFBox 3.0.8、jsoup 1.23.2，以及 CommonMark Java 0.24.0 GFM 刪除線擴充套件。打包的 JAR 相依套件之上游 LICENSE／NOTICE 檔案保留於 `licenses/dependencies`；版本與雜湊值記錄於可攜版資訊清單。
 
 ## Desktop 2.0.0
 
-首页协议、卡片解析／交互、操作回执、writer、连接心跳及语音文本拆分适配自用户的 Android 4.0.0 发布源码。保持原协议版本与来源说明。
+首頁協定、卡片解析與互動、操作回執、writer、連線心跳及語音文字拆分適配自使用者提供的 Android 4.0.0 發行版原始碼。保留原協定版本與來源說明。
 
-本地语音使用 sherpa-onnx v1.13.5 的 Java API 和对应 Windows x64／macOS arm64 原生库，Apache-2.0 许可保存在 `licenses/sherpa-onnx-LICENSE.txt`。上游：https://github.com/k2-fsa/sherpa-onnx 。依赖库的内嵌许可随 JAR 保留。
+本機語音使用 sherpa-onnx v1.13.5 的 Java API 與對應 Windows x64／macOS arm64 原生函式庫，Apache-2.0 授權保存在 `licenses/sherpa-onnx-LICENSE.txt`。上游：https://github.com/k2-fsa/sherpa-onnx 。相依函式庫的內嵌授權隨 JAR 保留。
 
-SenseVoice int8 与 Kokoro multilingual v1.1 int8 模型由用户按需从 sherpa-onnx 官方 GitHub Release 下载，应用安装包不捆绑模型。模型版本、地址、完整 SHA-256 与解压要求见 `LocalVoiceModels.kt`；模型各自的许可随下载档案保留。Apache Commons Compress 用于有界解包。
+SenseVoice int8 與 Kokoro multilingual v1.1 int8 模型由使用者按需從 sherpa-onnx 官方 GitHub Release 下載，應用程式安裝套件不包含模型。模型版本、網址、完整 SHA-256 與解壓縮要求見 `LocalVoiceModels.kt`；模型各自的授權隨下載封存檔保留。Apache Commons Compress 用於限制範圍的解壓縮。
 
-Windows 2.0.0 运行时由经过发布者 SHA-256 校验的 Temurin JDK 21.0.12.1+1 链接生成；Mac 验收包复用用户 1.9.0 发布包内的 Apple Silicon 启动器、Java 运行时和系统语音 helper，替换全部应用 JAR 后重新签名。构建清单保留各组件摘要。
+Windows 2.0.0 執行環境由通過發行者 SHA-256 校驗的 Temurin JDK 21.0.12.1+1 連結產生；Mac 驗收套件沿用使用者 1.9.0 發行套件內的 Apple Silicon 啟動器、Java 執行環境與系統語音 helper，替換全部應用程式 JAR 後重新簽章。建置資訊清單保留各元件摘要。
+
+第三方授權檔案與原始驗證資料保留原文；本頁僅翻譯專案的來源說明。

@@ -1,18 +1,20 @@
-# IME update repair in 1.8.8
+# 1.8.8 輸入法組字更新修復
 
-Compose 1.10.1 converts one `TextEditingScope` block into individual `onEditCommand` calls in `LegacyPlatformTextInputServiceAdapter.skiko.kt`. A preedit update executes `CommitText("")` then `SetComposingText(remaining)`. The first callback exposes a cleared preedit and null composition to the application before the second callback restores it.
+Compose 1.10.1 會在 `LegacyPlatformTextInputServiceAdapter.skiko.kt` 中，將一個 `TextEditingScope` 區塊拆成個別的 `onEditCommand` 呼叫。組字更新先執行 `CommitText("")`，再執行 `SetComposingText(remaining)`。第一個回呼會讓應用程式看見已清空的組字文字與空的組字範圍，第二個回呼才恢復內容。
 
-The upstream implementation now collects commands and calls `onEditCommand(commands)` once. Hermes backports that batching through the public `InterceptPlatformTextInput` API, scoped to its three macOS composers. No framework classes or native libraries are replaced. The native input method continues to own deletion; no pinyin is reconstructed in app code.
+上游實作目前會先收集指令，再一次呼叫 `onEditCommand(commands)`。Hermes 透過公開的 `InterceptPlatformTextInput` API 回補這個批次處理方式，範圍限於三個 macOS 輸入框。沒有替換框架類別或原生函式庫。刪除操作仍由原生輸入法處理；應用程式不重建拼音。
 
-Upstream source examined:
+檢查的上游原始碼：
+
 - https://github.com/JetBrains/compose-multiplatform-core/blob/v1.10.1/compose/foundation/foundation/src/skikoMain/kotlin/androidx/compose/foundation/text/input/internal/LegacyPlatformTextInputServiceAdapter.skiko.kt
 - https://github.com/JetBrains/compose-multiplatform-core/blob/568b08af72b029e2622dd47c727de50aa547a68b/compose/foundation/foundation/src/skikoMain/kotlin/androidx/compose/foundation/text/input/internal/LegacyPlatformTextInputServiceAdapter.skiko.kt
 
-Verification distinguishes three things:
-1. Batch semantics: one observable state per native edit, partial commits, explicit cancellation and aborted edits.
-2. AWT integration: real Compose window, transient states checked during every input-method event; disable only batching to prove the regression check fails against 1.8.7 behavior.
-3. Actual macOS input: opt-in Robot -> system Pinyin -> Cocoa -> AWT tests. WeType is a separate test and is explicitly skipped if macOS cannot select it. A passed system Pinyin test does not mean WeType passed.
+驗證分成三個部分：
 
-The user reported that 1.8.6/1.8.7 did not fix whole-preedit deletion with WeType. CI macOS 15.7.9 has so far refused WeType selection with OSStatus -50 after verified WeType 2.2.3 installation. The batching defect is confirmed independently; equivalence to the user's exact failure remains unconfirmed until WeType can be exercised in a working session.
+1. 批次語意：每次原生編輯只產生一個可觀察狀態，並涵蓋部分提交、明確取消與中止編輯。
+2. AWT 整合：使用真實 Compose 視窗，在每個輸入法事件期間檢查暫態；只停用批次處理，以證明回歸檢查能抓出 1.8.7 的行為。
+3. 實際 macOS 輸入：可選擇執行 Robot → 系統拼音 → Cocoa → AWT 測試。WeType 是獨立測試；macOS 無法選用它時會明確跳過。系統拼音測試通過，不代表 WeType 通過。
 
-The Help > Input method diagnostics window is opt-in. It retains at most 500 metadata events in memory, only from its own window. It records lengths, ranges, key codes for editing keys, runtime versions and timing; no typed text. Nothing is uploaded. Copying requires a button click; closing removes the listener and discards the buffer.
+使用者回報 1.8.6／1.8.7 未修復 WeType 刪除整段組字文字的問題。CI 的 macOS 15.7.9 在確認 WeType 2.2.3 安裝成功後，仍拒絕選用它，回傳 OSStatus -50。批次處理缺陷已獨立確認；在能正常使用 WeType 的環境完成測試前，尚不能確認它與使用者遇到的問題完全相同。
+
+「說明 → 輸入法診斷」視窗需自行開啟。它僅在記憶體中保留自己視窗的最多 500 筆中繼資料事件，記錄長度、範圍、編輯按鍵代碼、執行環境版本及時間，不記錄輸入文字，也不上傳資料。複製需要點選按鈕；關閉視窗會移除監聽器並丟棄緩衝區。

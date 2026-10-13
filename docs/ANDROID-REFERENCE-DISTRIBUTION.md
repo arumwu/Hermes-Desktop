@@ -1,15 +1,15 @@
-# 4.0.0 双版本构建与发布
+# 4.0.0 雙版本構建與釋出
 
-| 项目 | GitHub 版（公开源码默认） | OSS 加速版（单独交付） |
+| 專案 | GitHub 版（公開原始碼預設） | OSS 加速版（單獨交付） |
 | --- | --- | --- |
-| STT/TTS 包 | k2-fsa/sherpa-onnx 官方 Releases | 维护者配置的 OSS 服务 |
-| App 更新 | 本仓库 Releases 的 android-latest.json | OSS releases/android-latest.json |
-| 功能与模型校验 | 相同 | 相同 |
-| 渠道字段 | github | oss |
+| STT/TTS 包 | k2-fsa/sherpa-onnx 官方 Releases | 維護者配置的 OSS 服務 |
+| App 更新 | 本倉庫 Releases 的 android-latest.json | OSS releases/android-latest.json |
+| 功能與模型校驗 | 相同 | 相同 |
+| 渠道欄位 | github | oss |
 
-默认读取根目录 `distribution.properties`。OSS 源码包在同一路径放置 OSS 配置，开箱构建即对应渠道；不需要修改 Kotlin 文件。也可用 `-PhermesDistributionFile=/absolute/path/distribution.properties` 指定私有配置。请勿把个人下载服务地址、密钥或签名文件提交到公开仓库。
+預設讀取根目錄 `distribution.properties`。OSS 原始碼包在同一路徑放置 OSS 配置，開箱構建即對應渠道；不需要修改 Kotlin 檔案。也可用 `-PhermesDistributionFile=/absolute/path/distribution.properties` 指定私有配置。請勿把個人下載服務位址、金鑰或簽名檔案提交到公開倉庫。
 
-配置包含 `channel`、`sttUrl`、`ttsUrl`、`updateFeedUrl`、`updateApkBaseUrl` 五项。模型地址使用同一份官方原包，大小及 SHA-256 固定于代码。更新包必须属于当前渠道、同一包名且保持相同签名。4.0.0 及以后的 JSON 必须包含 `distribution`，App 不自动跨渠道更新。
+配置包含 `channel`、`sttUrl`、`ttsUrl`、`updateFeedUrl`、`updateApkBaseUrl` 五項。模型位址使用同一份官方原包，大小及 SHA-256 固定於程式碼。更新包必須屬於當前渠道、同一包名且保持相同簽名。4.0.0 及以後的 JSON 必須包含 `distribution`，App 不自動跨渠道更新。
 
 ```bash
 ./gradlew testDebugUnitTest assembleRelease -PhermesPreview=true -PhermesSigningFile=/path/to/original.keystore
@@ -18,8 +18,8 @@
 python3 tools/verify_tts_jni_callback.py app/build/outputs/apk/release/app-release.apk
 ```
 
-发布 APK 沿用 `com.qingyu.hermescompanion.preview` 与原签名；私钥不在任一源码包中。无发布密钥时，Android Studio 的 Debug 构建可自行签名，但不能覆盖不同签名的已安装版本。GitHub 和 OSS 版使用相同包名，同一手机只能安装一个；同签名覆盖切换保留模型和偏好，清除旧渠道未完成的软件更新。
+釋出 APK 沿用 `com.qingyu.hermescompanion.preview` 與原簽名；私鑰不在任一原始碼包中。無釋出金鑰時，Android Studio 的 Debug 構建可自行簽名，但不能覆蓋不同簽名的已安裝版本。GitHub 和 OSS 版使用相同包名，同一手機只能安裝一個；同簽名覆蓋切換保留模型和偏好，清除舊渠道未完成的軟體更新。
 
-GitHub Release 上传 `Hermes-Android-4.0.0-github.apk`、该版 `android-latest.json` 和源码包。OSS 则先上传 `Hermes-Android-4.0.0-oss.apk`，确认可下载后再上传对应 JSON。不得交换两版 JSON，哈希与长度均来自各自已签名 APK。
+GitHub Release 上傳 `Hermes-Android-4.0.0-github.apk`、該版 `android-latest.json` 和原始碼包。OSS 則先上傳 `Hermes-Android-4.0.0-oss.apk`，確認可下載後再上傳對應 JSON。不得交換兩版 JSON，雜湊與長度均來自各自已簽名 APK。
 
-OSS 加速渠道只改变下载位置，不包含收费、账号校验或下载鉴权。公开 URL 本身不能限制付费访问；若需要收费下载控制，应另行设计服务端鉴权。第三方模型及运行库许可证见 `docs/third-party-voice/` 与 App 内许可说明。
+OSS 加速渠道只改變下載位置，不包含收費、賬號校驗或下載鑑權。公開 URL 本身不能限制付費訪問；若需要收費下載控制，應另行設計伺服器端鑑權。第三方模型及執行庫許可證見 `docs/third-party-voice/` 與 App 內許可說明。

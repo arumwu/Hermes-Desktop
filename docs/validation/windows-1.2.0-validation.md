@@ -1,31 +1,31 @@
-# Hermes Windows 1.2.0 验证记录
+# Hermes Windows 1.2.0 驗證記錄
 
-构建环境：Linux x64，Temurin JDK 21.0.8+9，Gradle 8.13。应用版本 1.2.0。
+構建環境：Linux x64，Temurin JDK 21.0.8+9，Gradle 8.13。應用版本 1.2.0。
 
-## 自动化回归
+## 自動化迴歸
 
-`gradle test --offline`：129 项，127 项通过，0 项失败，2 项按平台条件跳过。
+`gradle test --offline`：129 項，127 項通過，0 項失敗，2 項按平臺條件跳過。
 
-逐套件记录见 `validation/windows-1.2.0-tests.json`。新增覆盖会话上限、无总数分页、短页、重叠页、重复页、归档分页、错误响应、首页草稿与附件转移、模板保留原文及快速查找上下文。
+逐套件記錄見 `validation/windows-1.2.0-tests.json`。新增覆蓋會話上限、無總數分頁、短頁、重疊頁、重複頁、歸檔分頁、錯誤響應、首頁草稿與附件轉移、模板保留原文及快速查詢上下文。
 
-## 实际组件渲染与交互
+## 實際元件渲染與互動
 
-`gradle renderPreviews` 使用真实 Compose 组件、演示会话和文件生成预览。覆盖工作台三套主题、窄窗口、150% / 200% DPI、错误与加载状态、聊天与文档并排、专注模式、快速查找、设置、技能、语音、消息、任务、表格与文档差异。
+`gradle renderPreviews` 使用真實 Compose 元件、演示會話和檔案生成預覽。覆蓋工作臺三套主題、窄視窗、150% / 200% DPI、錯誤與載入狀態、聊天與文件並排、專注模式、快速查詢、設定、技能、語音、訊息、任務、表格與文件差異。
 
-实际操作检查包括：工作台输入→追加模板→开始任务；文件栏收放与拖动保留会话/文档；长消息跳到底部；设置未保存输入在导航后保留；高 DPI 下主题选择和滚动到保存按钮；会话时间筛选的鼠标状态。快速查找还验证了输入筛选、方向键、Enter、Esc 和原会话保留。
+實際操作檢查包括：工作臺輸入→追加模板→開始任務；檔案欄收放與拖動保留會話/文件；長訊息跳到底部；設定未儲存輸入在導航後保留；高 DPI 下主題選擇和滾動到儲存按鈕；會話時間篩選的滑鼠狀態。快速查詢還驗證了輸入篩選、方向鍵、Enter、Esc 和原會話保留。
 
-截图位于 `previews/windows-1.2.0/`。它们是组件渲染，不是 Windows 真机截图。
+截圖位於 `previews/windows-1.2.0/`。它們是元件渲染，不是 Windows 真機截圖。
 
 ## Windows 包
 
-Windows x64 依赖通过 `stageWindowsApplication -PdesktopTarget=windows-x64` 准备。组装脚本检查 JavaFX Windows 模块、Skiko DLL 和运行环境的 x64 PE 标识，拒绝其他平台及测试依赖，并检查归档 CRC。
+Windows x64 依賴通過 `stageWindowsApplication -PdesktopTarget=windows-x64` 準備。組裝指令碼檢查 JavaFX Windows 模組、Skiko DLL 和執行環境的 x64 PE 標識，拒絕其他平臺及測試依賴，並檢查歸檔 CRC。
 
-官方运行环境：Eclipse Temurin JRE 21.0.12.1+1 Windows x64。发行商 ZIP SHA-256：
+官方執行環境：Eclipse Temurin JRE 21.0.12.1+1 Windows x64。發行商 ZIP SHA-256：
 
 `d35f31e712f0fcf6ac5a093edc90204fbff22f720ba3950bd09d331d5e621636`
 
-更新包只替换 1.1.0 的 `app/hermes-desktop.jar`；运行依赖版本保持一致。完整包内 `manifest.json` 记录每个 JAR 的 SHA-256。
+更新包只替換 1.1.0 的 `app/hermes-desktop.jar`；執行依賴版本保持一致。完整包內 `manifest.json` 記錄每個 JAR 的 SHA-256。
 
-## 平台边界
+## 平臺邊界
 
-没有在 Windows 真机运行本包；未测试真实网关账号、麦克风、Windows 系统语音、系统通知、DPAPI 或 JavaFX 原生窗口。也没有新做 macOS 真机验收。Windows 启动失败时请运行 `Diagnose-Hermes.bat` 并查看日志。
+沒有在 Windows 真機執行本包；未測試真實閘道器賬號、麥克風、Windows 系統語音、系統通知、DPAPI 或 JavaFX 原生視窗。也沒有新做 macOS 真機驗收。Windows 啟動失敗時請執行 `Diagnose-Hermes.bat` 並檢視日誌。
